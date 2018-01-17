@@ -29,16 +29,16 @@ var ServerTest;
         // Header: ?
         _response.setHeader("Access-Control-Allow-Origin", "*");
         // Response-Body
-        _response.write("Ich höre Stimmen!!<br>");
-        _response.write("Port: " + port + "<br>");
-        _response.write("Method: " + _request.method + "<br>");
-        _response.write("Url: " + _request.url + "<br>");
-        _response.write("Headers: " + _request.headers + "<br>");
+        _response.write("Ihre Bestellung:<br>");
+        //        _response.write("Baumtyp: " + port + "<br>");
+        //        _response.write("Halterung: " + _request.method + "<br>");
+        //        _response.write("Weihnachtskugeln: " + _request.url + "<br>");
+        //        _response.write("Kerzen: " + _request.headers + "<br>");
         // ?
         let query = Url.parse(_request.url, true).query;
         // ?
         for (let key in query)
-            console.log(key + ": " + query[key]);
+            _response.write(key + ": " + query[key] + "<br>");
         // Antwort abschließen und abschicken
         _response.end();
     }
